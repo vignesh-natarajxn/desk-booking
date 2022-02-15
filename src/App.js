@@ -2,6 +2,7 @@ import './App.css';
 import React, { useState } from "react";
 import BookingUI from "./components/BookingUI";
 //import Expenses from "./components/Expenses/Expenses";
+//bruh
 
 const SLOT_DETAILS = [
   {
