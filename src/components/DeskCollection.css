@@ -1,9 +1,13 @@
 .desk-collection {
-    list-style: none;
-    padding: 0;
-  }
-  
-  .desk-collection__fallback {
-    color: white;
-    text-align: center;
-  }
+  list-style: none;
+  padding: 0;
+
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.desk-collection__fallback {
+  color: white;
+  text-align: center;
+}
