@@ -1,0 +1,9 @@
+.desk-collection {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .desk-collection__fallback {
+    color: white;
+    text-align: center;
+  }
