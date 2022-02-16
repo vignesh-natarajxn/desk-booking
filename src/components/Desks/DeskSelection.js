@@ -1,7 +1,6 @@
 import React from "react";
 import Card from "../UI/Card";
 import "./DeskSelection.css";
-import "../User/User.css"
 import SelectedDesk from './SelectedDesk';
 
 const DeskSelection = (props) => {
@@ -13,12 +12,12 @@ const DeskSelection = (props) => {
 
   return (
     <div>
-    <Card className='user'>
-      <h1>You have selected:
+    <Card >
+      <ul className='desk-selection'>You have selected:
       {props.slots.map((desk) => (
         desk.userSelection ?
         desk.name : <div></div>
-      ))}</h1>
+      ))}</ul>
     </Card>
     <Card>
       <div>

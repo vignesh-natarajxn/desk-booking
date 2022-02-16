@@ -6,8 +6,3 @@
   flex-direction: row;
   flex-wrap: wrap;
 }
-
-.desk-collection__fallback {
-  color: white;
-  text-align: center;
-}
