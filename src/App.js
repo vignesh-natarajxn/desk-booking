@@ -153,7 +153,8 @@ const App = () => {
   
   const [slots, setSlots] = useState(SLOT_DETAILS);
   const [user, setUser] = useState("")
-  const [employeeUI, setEmployeeUI] =useState(true)
+  const [deskUI, setDeskUI] =useState(false)
+  const [selectionUI, setSelectionUI] = useState(false)
 
   const bookingHandler = (bookedName) => {
     setSlots((prevSlots) => {
@@ -162,15 +163,16 @@ const App = () => {
       );
     });
     if(user === "employee"){
-      setEmployeeUI(false);
+      setDeskUI(false);
     }
-
+    setSelectionUI(true)
   };
 
   const desksSelectedUI = <DeskSelection slots={slots} setUserInfo={setUser} /> 
 
   const userHandler = (userDetails) => {
     setUser(userDetails)
+    setDeskUI(true)
   }
 
   return (
@@ -182,13 +184,12 @@ const App = () => {
         <User userDetails={userHandler} />
       </Card>}
 
-      {user === "employee" &&
       <Card className="booking-ui">
-        {employeeUI? <DeskCollection slots={slots} onBooking={bookingHandler} userInfo={user} />
-        :desksSelectedUI}
-      </Card>}
+        {deskUI === true && <DeskCollection slots={slots} onBooking={bookingHandler} userInfo={user} />}
+        {selectionUI === true && desksSelectedUI}
+      </Card>
 
-      {user === "team manager" &&
+      {/* {user === "team manager" &&
       <Card className="booking-ui">
         <DeskCollection slots={slots} onBooking={bookingHandler} userInfo={user} />
         {desksSelectedUI}
@@ -198,7 +199,7 @@ const App = () => {
       <Card className="booking-ui">
         <DeskCollection slots={slots} onBooking={bookingHandler} userInfo={user} />
         {desksSelectedUI}
-      </Card>}
+      </Card>} */}
 
 
     </div>
