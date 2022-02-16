@@ -1,6 +1,5 @@
 import "./App.css";
 import React, { useState } from "react";
-//import BookingUI from "./components/BookingUI";
 import DeskCollection from "./components/Desks/DeskCollection";
 import Card from "./components/UI/Card";
 import User from "./components/User/User";
@@ -192,7 +191,7 @@ const App = () => {
         </Card>
       )}
 
-      <Card className="booking-ui">
+      <Card>
         {deskUI === true && (
           <DeskCollection
             slots={slots}
@@ -201,13 +200,13 @@ const App = () => {
           />
         )}
         {selectionUI === true && (
-          <DeskSelection
+          <DeskSelection className="booking-ui"
             slots={slots}
             setUserInfo={setUser}
             onSubmitHandler={submitHandler}
           />
         )}
-        {confirmationUI === true && <Confirmation slots={slots} />}
+        {confirmationUI === true && <Confirmation className="booking-ui" slots={slots} />}
       </Card>
 
       {/* {user === "team manager" &&

@@ -7,7 +7,7 @@ const Confirmation = (props) => {
 
   console.log(BOOKED_SLOTS);
 
-  return <Card>The Desks have been booked sucessfully!</Card>;
+  return <Card><h1>The Desks have been booked sucessfully!</h1></Card>;
 };
 
 export default Confirmation;
