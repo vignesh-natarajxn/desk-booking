@@ -9,12 +9,12 @@ const SLOT_DETAILS = [
   {
     id: "d1",
     name: "Desk 1",
-    bookingStatus: true,
+    bookingStatus: false,
   },
   {
     id: "d2",
     name: "Desk 2",
-    bookingStatus: false,
+    bookingStatus: true,
   },
   {
     id: "d3",
@@ -29,12 +29,12 @@ const SLOT_DETAILS = [
   {
     id: "d5",
     name: "Desk 5",
-    bookingStatus: false,
+    bookingStatus: true,
   },
   {
     id: "d6",
     name: "Desk 6",
-    bookingStatus: false,
+    bookingStatus: true,
   },
   {
     id: "d7",
@@ -69,17 +69,17 @@ const SLOT_DETAILS = [
   {
     id: "d13",
     name: "Desk 13",
-    bookingStatus: false,
+    bookingStatus: true,
   },
   {
     id: "d14",
     name: "Desk 14",
-    bookingStatus: false,
+    bookingStatus: true,
   },
   {
     id: "d15",
     name: "Desk 15",
-    bookingStatus: false,
+    bookingStatus: true,
   },
   {
     id: "d16",
@@ -109,22 +109,19 @@ const SLOT_DETAILS = [
 ];
 
 const App = () => {
-  const bookingHandler = (name) => {
-    console.log(name);
+  const [slots, setSlots] = useState(SLOT_DETAILS);
+
+  const bookingHandler = (bookedName) => {
+    setSlots(prevSlots => {
+      return (prevSlots.map(object =>
+        object.name === bookedName ? { ...object, bookingStatus: true } : object
+      )
+    )});
   };
-
-  // const [expenses, setExpenses] = useState(SLOT_DETAILS);
-
-  // const addExpenseHandler = (expense) => {
-  //   setExpenses((prevExpenses) => {
-  //     return [expense, ...prevExpenses];
-  //   });
-  //   //setExpenses([expense, ...expenses])
-  // };
 
   return (
     <Card className="booking-ui">
-      <DeskCollection slots={SLOT_DETAILS} onBooking={bookingHandler} />
+      <DeskCollection slots={slots} onBooking={bookingHandler} />
     </Card>
   );
 };

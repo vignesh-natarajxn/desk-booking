@@ -9,11 +9,20 @@ const Desk = (props) => {
   };
 
   return (
-    <Card className="desk">
+    <div>
+      {props.bookingStatus ?
+      <Card className="desk-booked">
+        <div>{props.name}</div>
+        <div>Booked</div>
+        <button onClick={bookingHandler}>Book Desk</button>
+      </Card>
+      : <Card className="desk">
       <div>{props.name}</div>
-      <div>{props.bookingStatus ? "Booked" : "Unbooked"}</div>
+      <div>Unbooked</div>
       <button onClick={bookingHandler}>Book Desk</button>
     </Card>
+      }
+    </div>
   );
 };
 
