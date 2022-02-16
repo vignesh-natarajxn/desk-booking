@@ -8,7 +8,7 @@ const BookingUI = (props) => {
     
     return (
         <Card className='booking-ui'>
-            <DeskCollection slots={props.slots} />
+            <DeskCollection />
         </Card>
     );
 };
