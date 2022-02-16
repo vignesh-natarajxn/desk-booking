@@ -173,8 +173,6 @@ const App = () => {
     setDeskUI(true)
   }
 
-
-
   return (
     <div>
       <h1 className="App-header">Desk Booking facility</h1>
@@ -187,6 +185,7 @@ const App = () => {
       <Card className="booking-ui">
         {deskUI === true && <DeskCollection slots={slots} onBooking={bookingHandler} userInfo={user} />}
         {selectionUI === true && <DeskSelection slots={slots} setUserInfo={setUser} />}
+        {/* {confirmationUI === true && <Confirmation />} */}
       </Card>
 
       {/* {user === "team manager" &&
