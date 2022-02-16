@@ -1,5 +1,6 @@
 import React from "react";
 import Desk from "./Desk";
+import Card from "../UI/Card";
 
 import "./DeskCollection.css";
 
