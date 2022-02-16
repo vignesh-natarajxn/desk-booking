@@ -8,7 +8,6 @@ const DeskSelection = (props) => {
 
   const onSubmitHandler = () => {
     console.log("Your Desk(s) have been booked successfully!")
-    props.setUserInfo("")
   }
 
   return (

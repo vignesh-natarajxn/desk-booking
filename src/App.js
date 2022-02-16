@@ -168,12 +168,12 @@ const App = () => {
     setSelectionUI(true)
   };
 
-  const desksSelectedUI = <DeskSelection slots={slots} setUserInfo={setUser} /> 
-
   const userHandler = (userDetails) => {
     setUser(userDetails)
     setDeskUI(true)
   }
+
+
 
   return (
     <div>
@@ -186,7 +186,7 @@ const App = () => {
 
       <Card className="booking-ui">
         {deskUI === true && <DeskCollection slots={slots} onBooking={bookingHandler} userInfo={user} />}
-        {selectionUI === true && desksSelectedUI}
+        {selectionUI === true && <DeskSelection slots={slots} setUserInfo={setUser} />}
       </Card>
 
       {/* {user === "team manager" &&
@@ -200,8 +200,6 @@ const App = () => {
         <DeskCollection slots={slots} onBooking={bookingHandler} userInfo={user} />
         {desksSelectedUI}
       </Card>} */}
-
-
     </div>
   );
 };
