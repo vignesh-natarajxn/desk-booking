@@ -3,8 +3,7 @@ import Card from "../UI/Card";
 
 
 const Confirmation = (props) => {
-    const BOOKED_SLOTS = props.slots.map((slot) => 
-    slot.userSelection === true && [props.name, ...BOOKED_SLOTS])
+    const BOOKED_SLOTS = props.slots.filter((slot) => slot.userSelection === true )
 
     console.log(BOOKED_SLOTS)
 
