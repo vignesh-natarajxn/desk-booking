@@ -200,13 +200,15 @@ const App = () => {
           />
         )}
         {selectionUI === true && (
-          <DeskSelection className="booking-ui"
+          <Card className="booking-ui">
+          <DeskSelection 
             slots={slots}
             setUserInfo={setUser}
             onSubmitHandler={submitHandler}
           />
+          </Card>
         )}
-        {confirmationUI === true && <Confirmation className="booking-ui" slots={slots} />}
+        {confirmationUI === true && <Confirmation slots={slots} />}
       </Card>
 
       {/* {user === "team manager" &&
