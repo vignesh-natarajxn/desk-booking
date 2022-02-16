@@ -6,9 +6,6 @@ import '../User/User.css'
 
 const DeskSelection = (props) => {
 
-  const onSubmitHandler = () => {
-    console.log("Your Desk(s) have been booked successfully!")
-  }
 
   return (
     <div>
@@ -22,7 +19,7 @@ const DeskSelection = (props) => {
     <Card className='user'>
       <div>
         <h2>Please click 'Confirm' to finalize your booking(s)</h2>
-        <button onClick={onSubmitHandler}>Confirm</button>
+        <button onClick={props.onSubmitHandler}>Confirm</button>
       </div>
     </Card>
     </div>

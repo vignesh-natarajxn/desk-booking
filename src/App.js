@@ -5,6 +5,7 @@ import DeskCollection from "./components/Desks/DeskCollection";
 import Card from "./components/UI/Card";
 import User from './components/User/User';
 import DeskSelection from './components/Desks/DeskSelection';
+import Confirmation from './components/Desks/Confirmation';
 
 const SLOT_DETAILS = [
   {
@@ -155,6 +156,7 @@ const App = () => {
   const [user, setUser] = useState("")
   const [deskUI, setDeskUI] =useState(false)
   const [selectionUI, setSelectionUI] = useState(false)
+  const [confirmationUI, setConfirmationUI] = useState(false)
 
   const bookingHandler = (bookedName) => {
     setSlots((prevSlots) => {
@@ -173,6 +175,12 @@ const App = () => {
     setDeskUI(true)
   }
 
+  const submitHandler = () => {
+    setConfirmationUI(true)
+    setSelectionUI(false)
+    setDeskUI(false)
+  }
+
   return (
     <div>
       <h1 className="App-header">Desk Booking facility</h1>
@@ -184,8 +192,8 @@ const App = () => {
 
       <Card className="booking-ui">
         {deskUI === true && <DeskCollection slots={slots} onBooking={bookingHandler} userInfo={user} />}
-        {selectionUI === true && <DeskSelection slots={slots} setUserInfo={setUser} />}
-        {/* {confirmationUI === true && <Confirmation />} */}
+        {selectionUI === true && <DeskSelection slots={slots} setUserInfo={setUser} onSubmitHandler={submitHandler} />}
+        {confirmationUI === true && <Confirmation slots={slots}/>}
       </Card>
 
       {/* {user === "team manager" &&
