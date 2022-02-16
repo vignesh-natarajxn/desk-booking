@@ -7,17 +7,15 @@ const Desk = (props) => {
     
     const [bookingStatus, setBookingStatus] = useState(props.bookingStatus);
 
-
-    const bookHandler = () => {
+    const bookingHandler = () => {
         setBookingStatus(true);
-        console.log(bookingStatus);
     }
 
     return (
         <Card className="desk">
             <div>{props.name}</div>
             <div>{bookingStatus? "Booked" : "Unbooked" }</div>
-            <button onClick={bookHandler} >Book Desk</button>
+            <button onClick={bookingHandler} >Book Desk</button>
         </Card>
     );
 };
