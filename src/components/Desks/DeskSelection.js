@@ -2,6 +2,7 @@ import React from "react";
 import Card from "../UI/Card";
 import "./DeskSelection.css";
 import SelectedDesk from './SelectedDesk';
+import '../User/User.css'
 
 const DeskSelection = (props) => {
 
@@ -12,14 +13,14 @@ const DeskSelection = (props) => {
 
   return (
     <div>
-    <Card >
-      <h1 className='desk-selection'>You have selected:</h1>
+    <Card className='desk-selection'>
+      <h1 >You have selected:</h1>
       {props.slots.map((desk) => (
         desk.userSelection ?
         <SelectedDesk name={desk.name} /> : <div></div>
       ))}
     </Card>
-    <Card>
+    <Card className='user'>
       <div>
         <h2>Please click 'Confirm' to finalize your booking(s)</h2>
         <button onClick={onSubmitHandler}>Confirm</button>
