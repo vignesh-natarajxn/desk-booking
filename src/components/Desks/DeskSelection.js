@@ -13,11 +13,11 @@ const DeskSelection = (props) => {
   return (
     <div>
     <Card >
-      <ul className='desk-selection'>You have selected:
+      <h1 className='desk-selection'>You have selected:</h1>
       {props.slots.map((desk) => (
         desk.userSelection ?
-        desk.name : <div></div>
-      ))}</ul>
+        <SelectedDesk name={desk.name} /> : <div></div>
+      ))}
     </Card>
     <Card>
       <div>
