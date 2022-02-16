@@ -1,9 +1,9 @@
 import "./App.css";
 import React, { useState } from "react";
 //import BookingUI from "./components/BookingUI";
-import DeskCollection from "./components/DeskCollection";
+import DeskCollection from "./components/Desks/DeskCollection";
 import Card from "./components/UI/Card";
-import "./components/BookingUI.css";
+import User from './components/User/User';
 
 const SLOT_DETAILS = [
   {
@@ -112,17 +112,30 @@ const App = () => {
   const [slots, setSlots] = useState(SLOT_DETAILS);
 
   const bookingHandler = (bookedName) => {
-    setSlots(prevSlots => {
-      return (prevSlots.map(object =>
+    setSlots((prevSlots) => {
+      return prevSlots.map((object) =>
         object.name === bookedName ? { ...object, bookingStatus: true } : object
-      )
-    )});
+      );
+    });
   };
 
+  let user = ""
+
+  const userHandler = (userDetails) => {
+    user = userDetails
+  }
+
   return (
-    <Card className="booking-ui">
-      <DeskCollection slots={slots} onBooking={bookingHandler} />
-    </Card>
+    <div>
+      <h1 className="App-header">Desk Booking facility</h1>
+      
+      <Card className="booking-ui">
+        <User userDetails={userHandler} />
+      </Card>
+      <Card className="booking-ui">
+        <DeskCollection slots={slots} onBooking={bookingHandler} />
+      </Card>
+    </div>
   );
 };
 
