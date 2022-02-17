@@ -246,7 +246,7 @@ const App = () => {
             />
           </Card>
         )}
-        {confirmationUI === true && <Confirmation slots={slots} />}
+        {confirmationUI === true && <Confirmation slots={slots} user={user} />}
       </Card>
     </div>
   );
