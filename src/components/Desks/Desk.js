@@ -25,12 +25,14 @@ const Desk = (props) => {
             {props.favorite ? (
               <img
                 src="https://upload.wikimedia.org/wikipedia/commons/e/e5/Full_Star_Yellow.svg"
+                alt='some value'
                 height={15}
                 width={15}
               />
             ) : (
               <img
                 src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Whitestar_black.svg/129px-Whitestar_black.svg.png"
+                alt='some value'
                 height={15}
                 width={15}
               />
@@ -38,6 +40,7 @@ const Desk = (props) => {
             {props.userSelection === true && (
               <img
                 src="https://upload.wikimedia.org/wikipedia/commons/7/73/Flat_tick_icon.svg"
+                alt='some value'
                 height={15}
                 width={15}
               />
@@ -59,19 +62,21 @@ const Desk = (props) => {
             {props.favorite ? (
               <img
                 src="https://upload.wikimedia.org/wikipedia/commons/e/e5/Full_Star_Yellow.svg"
+                alt='some value'
                 height={15}
                 width={15}
               />
             ) : (
               <img
                 src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Whitestar_black.svg/129px-Whitestar_black.svg.png"
+                alt='some value'
                 height={15}
                 width={15}
               />
             )}
           </div>
           <div>
-            {props.j == 0 ? (
+            {props.j === 0 ? (
               <button onClick={bookingHandler}>Book Desk</button>
             ) : (
               <div>Booking Unavailable</div>
@@ -80,6 +85,7 @@ const Desk = (props) => {
           {props.userSelection === true && (
             <img
               src="https://upload.wikimedia.org/wikipedia/commons/7/73/Flat_tick_icon.svg"
+              alt='some value'
               height={15}
               width={15}
             />
