@@ -6,8 +6,7 @@ import "./DeskCollection.css";
 import "./DeskSelection.css";
 
 const DeskCollection = (props) => {
-
-  let i=-1
+  let i = -1;
 
   const bookingHandler = (name) => {
     props.onBooking(name);
@@ -41,7 +40,7 @@ const DeskCollection = (props) => {
             onFavorite={favoriteHandler}
             onBooking={bookingHandler}
             onCancel={cancelHandler}
-            j={++i%(props.rules.spacing+1)}
+            j={++i % (props.rules.spacing + 1)}
           />
         ))}
       </ul>
@@ -52,7 +51,7 @@ const DeskCollection = (props) => {
             <div>
               <ul>
                 <h2>Set number of vacant desks between occupants:</h2>
-                <div text-align='center'>
+                <div text-align="center">
                   <button onClick={decrementHandler}>-</button>{" "}
                   {props.rules.spacing}{" "}
                   <button onClick={incrementHandler}>+</button>

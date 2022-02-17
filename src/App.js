@@ -1,4 +1,3 @@
-import "./App.css";
 import React, { useState } from "react";
 import DeskCollection from "./components/Desks/DeskCollection";
 import Card from "./components/UI/Card";
@@ -6,6 +5,8 @@ import User from "./components/User/User";
 import DeskSelection from "./components/Desks/DeskSelection";
 import Confirmation from "./components/Desks/Confirmation";
 //import FloorUI from './components/Desks/FloorUI';
+
+import "./App.css";
 
 const FLOOR_RULES = {
   spacing: 0,

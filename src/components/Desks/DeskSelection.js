@@ -1,7 +1,8 @@
 import React from "react";
 import Card from "../UI/Card";
-import "./DeskSelection.css";
 import SelectedDesk from "./SelectedDesk";
+
+import "./DeskSelection.css";
 import "../User/User.css";
 
 const DeskSelection = (props) => {
