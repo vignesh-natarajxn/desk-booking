@@ -192,7 +192,6 @@ const App = () => {
           : object
       );
     });
-    console.log(slots)
   };
 
   const cancelHandler = (name) => {
