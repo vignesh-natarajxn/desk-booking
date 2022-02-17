@@ -153,15 +153,16 @@ const SLOT_DETAILS = [
 const App = () => {
   const [slots, setSlots] = useState(SLOT_DETAILS);
   const [user, setUser] = useState("");
+
   const [deskUI, setDeskUI] = useState(false);
   const [selectionUI, setSelectionUI] = useState(false);
   const [confirmationUI, setConfirmationUI] = useState(false);
   const [floorUI, setFloorUI] = useState(false);
 
-  const bookingHandler = (bookedName) => {
+  const bookingHandler = (name) => {
     setSlots((prevSlots) => {
       return prevSlots.map((object) =>
-        object.name === bookedName
+        object.name === name
           ? { ...object, bookingStatus: true, userSelection: true }
           : object
       );
@@ -172,13 +173,21 @@ const App = () => {
     setSelectionUI(true);
   };
 
-  const favoritesHandler = (favName) => {
+  const favoritesHandler = (name) => {
     setSlots((prevSlots) => {
       return prevSlots.map((object) =>
-        object.name === favName ? { ...object, favorite: true } : object
+        object.name === name ? { ...object, favorite: true?false:true } : object
       );
     });
   };
+
+  const cancelHandler = (name) => {
+    setSlots((prevSlots) => {
+      return prevSlots.map((object) =>
+        object.name === name ? { ...object, bookingStatus: false } : object
+      );
+    });
+  }
 
   const userHandler = (userDetails) => {
     setUser(userDetails);
@@ -208,7 +217,8 @@ const App = () => {
             slots={slots}
             onBooking={bookingHandler}
             onFavorite={favoritesHandler}
-            userInfo={user}
+            onCancel={cancelHandler}
+            user={user}
           />
         )}
         {selectionUI === true && (

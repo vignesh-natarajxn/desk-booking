@@ -10,9 +10,14 @@ const DeskSelection = (props) => {
       <Card className="desk-selection">
         <h1>You have selected:</h1>
         {props.slots.map((desk) =>
-          desk.userSelection ? <div><SelectedDesk name={desk.name} /> <button>Remove</button> </div>: <div></div>
+          desk.userSelection ? (
+            <div>
+              <SelectedDesk name={desk.name} /> <button>Remove</button>{" "}
+            </div>
+          ) : (
+            <div></div>
+          )
         )}
-        
       </Card>
       <Card className="user">
         <div>

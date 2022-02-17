@@ -1,6 +1,6 @@
 import React from "react";
 import Desk from "./Desk";
-//import Card from "../UI/Card";
+import Card from "../UI/Card";
 
 import "./DeskCollection.css";
 
@@ -10,6 +10,9 @@ const DeskCollection = (props) => {
   };
   const favoriteHandler = (name) => {
     props.onFavorite(name);
+  };
+  const cancelHandler = (name) => {
+    props.onCancel(name);
   }
 
   return (
@@ -20,14 +23,17 @@ const DeskCollection = (props) => {
           <Desk
             key={desk.id}
             name={desk.name}
+            user={props.user}
             bookingStatus={desk.bookingStatus}
             userSelection={desk.userSelection}
             favoriteStatus={desk.favorite}
             onFavorite={favoriteHandler}
             onBooking={bookingHandler}
+            onCancel={cancelHandler}
           />
         ))}
       </ul>
+      {props.user === "floor manager" && <Card></Card>}
     </div>
   );
 };

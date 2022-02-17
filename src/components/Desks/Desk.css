@@ -1,24 +1,22 @@
 .desk {
-   
-    text-align: center;
-    padding: 1rem;
-    margin: 1rem 0;
-    background-color: #4b4b4b;
-  }
+  text-align: center;
+  padding: 1rem;
+  margin: 1rem 0;
+  background-color: #4b4b4b;
+  min-width: 100;
+  min-height: 100;
+}
 
+.desk-booked {
+  text-align: center;
+  padding: 1rem;
+  margin: 1rem 0;
+  background-color: #b10000;
+}
 
-  .desk-booked {
-   
-    text-align: center;
-    padding: 1rem;
-    margin: 1rem 0;
-    background-color: #b10000;
-  }
-
-  .selected {
-   
-    text-align: center;
-    padding: 1rem;
-    margin: 1rem 0;
-    background-color: #00a116;
-  }
+.selected {
+  text-align: center;
+  padding: 1rem;
+  margin: 1rem 0;
+  background-color: #00a116;
+}
