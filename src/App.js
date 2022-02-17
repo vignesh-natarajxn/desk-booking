@@ -219,7 +219,14 @@ const App = () => {
     setDeskUI(false);
     setConfirmationUI(false);
     setSelectionUI(false);
-    setUser('')
+    setUser('');
+    setSlots((prevSlots) => {
+      return prevSlots.map((object) =>
+        object.userSelection === true
+          ? { ...object, userSelection: false }
+          : object
+      );
+    });
   }
 
   return (
