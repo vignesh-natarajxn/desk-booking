@@ -177,9 +177,9 @@ const App = () => {
     setSelectionUI(true);
   };
 
-  const ruleChangeHandler = (newRule) => {
+  const spacingChangeHandler = (newSpacing) => {
     setRules((prevRules) => {
-      return { ...prevRules, spacing: prevRules.spacing + newRule };
+      return { ...prevRules, spacing: prevRules.spacing + newSpacing };
     });
   };
 
@@ -232,7 +232,7 @@ const App = () => {
             onBooking={bookingHandler}
             onFavorite={favoritesHandler}
             onCancel={cancelHandler}
-            onRuleChange={ruleChangeHandler}
+            onSpacingChange={spacingChangeHandler}
             user={user}
           />
         )}

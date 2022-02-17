@@ -20,10 +20,10 @@ const DeskCollection = (props) => {
   };
 
   const incrementHandler = () => {
-    props.onRuleChange(1);
+    props.onSpacingChange(1);
   };
   const decrementHandler = () => {
-    props.onRuleChange(-1);
+    props.onSpacingChange(-1);
   };
 
   return (
@@ -58,6 +58,7 @@ const DeskCollection = (props) => {
                   {props.rules.spacing}{" "}
                   <button onClick={incrementHandler}>+</button>
                 </div>
+                <button>Apply to booked desks</button>
               </ul>
             </div>
           </Card>
