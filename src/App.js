@@ -5,6 +5,7 @@ import Card from "./components/UI/Card";
 import User from "./components/User/User";
 import DeskSelection from "./components/Desks/DeskSelection";
 import Confirmation from "./components/Desks/Confirmation";
+//import FloorUI from './components/Desks/FloorUI';
 
 const SLOT_DETAILS = [
   {
@@ -155,6 +156,7 @@ const App = () => {
   const [deskUI, setDeskUI] = useState(false);
   const [selectionUI, setSelectionUI] = useState(false);
   const [confirmationUI, setConfirmationUI] = useState(false);
+  const [floorUI, setFloorUI] = useState(false);
 
   const bookingHandler = (bookedName) => {
     setSlots((prevSlots) => {
@@ -173,16 +175,15 @@ const App = () => {
   const favoritesHandler = (favName) => {
     setSlots((prevSlots) => {
       return prevSlots.map((object) =>
-        object.name === favName
-          ? { ...object, favorite: true }
-          : object
+        object.name === favName ? { ...object, favorite: true } : object
       );
     });
-  }
+  };
 
   const userHandler = (userDetails) => {
     setUser(userDetails);
     setDeskUI(true);
+    setFloorUI(true);
   };
 
   const submitHandler = () => {
@@ -212,27 +213,15 @@ const App = () => {
         )}
         {selectionUI === true && (
           <Card className="booking-ui">
-          <DeskSelection 
-            slots={slots}
-            setUserInfo={setUser}
-            onSubmitHandler={submitHandler}
-          />
+            <DeskSelection
+              slots={slots}
+              setUserInfo={setUser}
+              onSubmitHandler={submitHandler}
+            />
           </Card>
         )}
         {confirmationUI === true && <Confirmation slots={slots} />}
       </Card>
-
-      {/* {user === "team manager" &&
-      <Card className="booking-ui">
-        <DeskCollection slots={slots} onBooking={bookingHandler} userInfo={user} />
-        {desksSelectedUI}
-      </Card>}
-
-      {user === "floor manager" &&
-      <Card className="booking-ui">
-        <DeskCollection slots={slots} onBooking={bookingHandler} userInfo={user} />
-        {desksSelectedUI}
-      </Card>} */}
     </div>
   );
 };
