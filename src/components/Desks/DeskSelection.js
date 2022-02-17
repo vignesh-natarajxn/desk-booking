@@ -12,7 +12,7 @@ const DeskSelection = (props) => {
         {props.slots.map((desk) =>
           desk.userSelection ? (
             <div>
-              <SelectedDesk name={desk.name} /> <button>Remove</button>{" "}
+              <SelectedDesk name={desk.name} /> <button>Cancel</button>{" "}
             </div>
           ) : (
             <div></div>

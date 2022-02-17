@@ -7,6 +7,10 @@ import DeskSelection from "./components/Desks/DeskSelection";
 import Confirmation from "./components/Desks/Confirmation";
 //import FloorUI from './components/Desks/FloorUI';
 
+const FLOOR_RULES = {
+  spacing: 1,
+};
+
 const SLOT_DETAILS = [
   {
     id: "d1",
@@ -152,12 +156,12 @@ const SLOT_DETAILS = [
 
 const App = () => {
   const [slots, setSlots] = useState(SLOT_DETAILS);
+  const [rules, setRules] = useState(FLOOR_RULES);
   const [user, setUser] = useState("");
 
   const [deskUI, setDeskUI] = useState(false);
   const [selectionUI, setSelectionUI] = useState(false);
   const [confirmationUI, setConfirmationUI] = useState(false);
-  const [floorUI, setFloorUI] = useState(false);
 
   const bookingHandler = (name) => {
     setSlots((prevSlots) => {
@@ -173,10 +177,18 @@ const App = () => {
     setSelectionUI(true);
   };
 
+  const ruleChangeHandler = (newRule) => {
+    setRules((prevRules) => {
+      return { ...prevRules, spacing: prevRules.spacing + newRule };
+    });
+  };
+
   const favoritesHandler = (name) => {
     setSlots((prevSlots) => {
       return prevSlots.map((object) =>
-        object.name === name ? { ...object, favorite: true?false:true } : object
+        object.name === name
+          ? { ...object, favorite: true ? false : true }
+          : object
       );
     });
   };
@@ -184,15 +196,16 @@ const App = () => {
   const cancelHandler = (name) => {
     setSlots((prevSlots) => {
       return prevSlots.map((object) =>
-        object.name === name ? { ...object, bookingStatus: false } : object
+        object.name === name
+          ? { ...object, bookingStatus: false, userSelection: false }
+          : object
       );
     });
-  }
+  };
 
   const userHandler = (userDetails) => {
     setUser(userDetails);
     setDeskUI(true);
-    setFloorUI(true);
   };
 
   const submitHandler = () => {
@@ -215,9 +228,11 @@ const App = () => {
         {deskUI === true && (
           <DeskCollection
             slots={slots}
+            rules={rules}
             onBooking={bookingHandler}
             onFavorite={favoritesHandler}
             onCancel={cancelHandler}
+            onRuleChange={ruleChangeHandler}
             user={user}
           />
         )}

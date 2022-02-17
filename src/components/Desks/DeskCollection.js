@@ -3,8 +3,13 @@ import Desk from "./Desk";
 import Card from "../UI/Card";
 
 import "./DeskCollection.css";
+import "./DeskSelection.css";
 
 const DeskCollection = (props) => {
+
+  const size = props.slots.length
+  let i=-1
+
   const bookingHandler = (name) => {
     props.onBooking(name);
   };
@@ -13,11 +18,18 @@ const DeskCollection = (props) => {
   };
   const cancelHandler = (name) => {
     props.onCancel(name);
-  }
+  };
+
+  const incrementHandler = () => {
+    props.onRuleChange(1);
+  };
+  const decrementHandler = () => {
+    props.onRuleChange(-1);
+  };
 
   return (
     <div>
-      <h2>Book your Desks here</h2>
+      <h1>Book your Desks here</h1>
       <ul className="desk-collection">
         {props.slots.map((desk) => (
           <Desk
@@ -30,10 +42,29 @@ const DeskCollection = (props) => {
             onFavorite={favoriteHandler}
             onBooking={bookingHandler}
             onCancel={cancelHandler}
+            spacing={props.rules.spacing}
+            size={size}
+            j={++i%(props.rules.spacing+1)}
           />
         ))}
       </ul>
-      {props.user === "floor manager" && <Card></Card>}
+      {props.user === "floor manager" && (
+        <div>
+          <h1>Manage Floor Rules:</h1>
+          <Card>
+            <div>
+              <ul>
+                <h2>Set number of vacant desk between occupants:</h2>
+                <div text-align='center'>
+                  <button onClick={decrementHandler}>-</button>{" "}
+                  {props.rules.spacing}{" "}
+                  <button onClick={incrementHandler}>+</button>
+                </div>
+              </ul>
+            </div>
+          </Card>
+        </div>
+      )}
     </div>
   );
 };

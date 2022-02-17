@@ -70,8 +70,9 @@ const Desk = (props) => {
               />
             )}
           </div>
-          <div>
-            <button onClick={bookingHandler}>Book Desk</button>
+          <div >
+            {props.j==0? <button onClick={bookingHandler} >Book Desk</button>
+            : <button >Booking Unavailable</button>}
           </div>
           {props.userSelection === true && (
             <img

@@ -1,15 +1,13 @@
 .desk {
   text-align: center;
-  padding: 1rem;
+  padding: 2rem;
   margin: 1rem 0;
   background-color: #4b4b4b;
-  min-width: 100;
-  min-height: 100;
 }
 
 .desk-booked {
   text-align: center;
-  padding: 1rem;
+  padding: 2rem;
   margin: 1rem 0;
   background-color: #b10000;
 }
