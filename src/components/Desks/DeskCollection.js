@@ -41,7 +41,6 @@ const DeskCollection = (props) => {
             onFavorite={favoriteHandler}
             onBooking={bookingHandler}
             onCancel={cancelHandler}
-            spacing={props.rules.spacing}
             j={++i%(props.rules.spacing+1)}
           />
         ))}
