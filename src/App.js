@@ -215,6 +215,13 @@ const App = () => {
     setDeskUI(false);
   };
 
+  const homeReqHandler = () => {
+    setDeskUI(false);
+    setConfirmationUI(false);
+    setSelectionUI(false);
+    setUser('')
+  }
+
   return (
     <div>
       <h1 className="App-header">Desk Booking facility</h1>
@@ -246,7 +253,7 @@ const App = () => {
             />
           </Card>
         )}
-        {confirmationUI === true && <Confirmation slots={slots} user={user} />}
+        {confirmationUI === true && <Confirmation slots={slots} user={user} onHomeReq={homeReqHandler} />}
       </Card>
     </div>
   );
