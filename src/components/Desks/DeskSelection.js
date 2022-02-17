@@ -16,7 +16,7 @@ const DeskSelection = (props) => {
                 <div>
                   <h2>{desk.name}</h2>
                 </div>{" "}
-                <button>Cancel</button>{" "}
+                {/* <button>Cancel</button>{" "} */}
               </div>
             )
         )}

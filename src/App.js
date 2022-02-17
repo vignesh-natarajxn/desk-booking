@@ -180,7 +180,7 @@ const App = () => {
 
   const spacingChangeHandler = (newSpacing) => {
     setRules((prevRules) => {
-      return { ...prevRules, spacing: prevRules.spacing + newSpacing };
+      return { ...prevRules, spacing: (prevRules.spacing + newSpacing)>=0?prevRules.spacing + newSpacing : 0 };
     });
   };
 

@@ -42,12 +42,14 @@ const Desk = (props) => {
               />
             )}
             {props.userSelection === true && (
+              <div>
               <img
                 src="https://upload.wikimedia.org/wikipedia/commons/7/73/Flat_tick_icon.svg"
                 alt="some value"
                 height={15}
                 width={15}
               />
+              </div>
             )}
           </div>
           {props.user === "floor manager" && (
@@ -85,10 +87,13 @@ const Desk = (props) => {
             )}
           </div>
           <div>
+            {props.userSelection === true}
+          </div>
+          <div>
             {props.j === 0 ? (
               <button onClick={bookingHandler}>Book Desk</button>
             ) : (
-              <div>Booking Unavailable</div>
+              <div>Unavailable</div>
             )}
           </div>
           {props.userSelection === true && (
