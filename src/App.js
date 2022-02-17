@@ -8,7 +8,7 @@ import Confirmation from "./components/Desks/Confirmation";
 //import FloorUI from './components/Desks/FloorUI';
 
 const FLOOR_RULES = {
-  spacing: 1,
+  spacing: 0,
 };
 
 const SLOT_DETAILS = [
