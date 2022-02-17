@@ -1,6 +1,5 @@
 import React from "react";
 import Card from "../UI/Card";
-import SelectedDesk from "./SelectedDesk";
 
 import "./DeskSelection.css";
 import "../User/User.css";
@@ -10,14 +9,16 @@ const DeskSelection = (props) => {
     <div>
       <Card className="desk-selection">
         <h1>You have selected:</h1>
-        {props.slots.map((desk) =>
-          desk.userSelection ? (
-            <div>
-              <SelectedDesk name={desk.name} /> <button>Cancel</button>{" "}
-            </div>
-          ) : (
-            <div></div>
-          )
+        {props.slots.map(
+          (desk) =>
+            desk.userSelection === true && (
+              <div>
+                <div>
+                  <h2>{desk.name}</h2>
+                </div>{" "}
+                <button>Cancel</button>{" "}
+              </div>
+            )
         )}
       </Card>
       <Card className="user">

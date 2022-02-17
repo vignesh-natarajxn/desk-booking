@@ -14,6 +14,10 @@ const Desk = (props) => {
     props.onCancel(props.name);
   };
 
+  const approveHandler = () => {
+
+  }
+
   return (
     <div>
       {props.bookingStatus === true && (
@@ -25,14 +29,14 @@ const Desk = (props) => {
             {props.favorite ? (
               <img
                 src="https://upload.wikimedia.org/wikipedia/commons/e/e5/Full_Star_Yellow.svg"
-                alt='some value'
+                alt="some value"
                 height={15}
                 width={15}
               />
             ) : (
               <img
                 src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Whitestar_black.svg/129px-Whitestar_black.svg.png"
-                alt='some value'
+                alt="some value"
                 height={15}
                 width={15}
               />
@@ -40,7 +44,7 @@ const Desk = (props) => {
             {props.userSelection === true && (
               <img
                 src="https://upload.wikimedia.org/wikipedia/commons/7/73/Flat_tick_icon.svg"
-                alt='some value'
+                alt="some value"
                 height={15}
                 width={15}
               />
@@ -48,7 +52,12 @@ const Desk = (props) => {
           </div>
           {props.user === "floor manager" && (
             <div>
-              <button onClick={cancelHandler}>Cancel Booking</button>
+              <div>
+                <button onClick={cancelHandler}>Cancel Booking</button>
+              </div>
+              {/* <div>
+                <button onClick={approveHandler}>Approve Booking</button>
+              </div> */}
             </div>
           )}
         </Card>
@@ -62,14 +71,14 @@ const Desk = (props) => {
             {props.favorite ? (
               <img
                 src="https://upload.wikimedia.org/wikipedia/commons/e/e5/Full_Star_Yellow.svg"
-                alt='some value'
+                alt="some value"
                 height={15}
                 width={15}
               />
             ) : (
               <img
                 src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Whitestar_black.svg/129px-Whitestar_black.svg.png"
-                alt='some value'
+                alt="some value"
                 height={15}
                 width={15}
               />
@@ -85,7 +94,7 @@ const Desk = (props) => {
           {props.userSelection === true && (
             <img
               src="https://upload.wikimedia.org/wikipedia/commons/7/73/Flat_tick_icon.svg"
-              alt='some value'
+              alt="some value"
               height={15}
               width={15}
             />
