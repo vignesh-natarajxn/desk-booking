@@ -170,6 +170,16 @@ const App = () => {
     setSelectionUI(true);
   };
 
+  const favoritesHandler = (name) => {
+    setSlots((prevSlots) => {
+      return prevSlots.map((object) =>
+        object.name === name
+          ? { ...object, favorite: true }
+          : object
+      );
+    });
+  }
+
   const userHandler = (userDetails) => {
     setUser(userDetails);
     setDeskUI(true);
@@ -196,6 +206,7 @@ const App = () => {
           <DeskCollection
             slots={slots}
             onBooking={bookingHandler}
+            onFavorite={favoritesHandler}
             userInfo={user}
           />
         )}

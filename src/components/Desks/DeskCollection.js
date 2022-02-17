@@ -8,6 +8,9 @@ const DeskCollection = (props) => {
   const bookingHandler = (name) => {
     props.onBooking(name);
   };
+  const favoriteHandler = (name) => {
+    props.onFavorite(name);
+  }
 
   return (
     <div>
@@ -18,6 +21,9 @@ const DeskCollection = (props) => {
             key={desk.id}
             name={desk.name}
             bookingStatus={desk.bookingStatus}
+            userSelection={desk.userSelection}
+            favoriteStatus={desk.favorite}
+            onFavorite={favoriteHandler}
             onBooking={bookingHandler}
           />
         ))}
