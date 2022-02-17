@@ -188,10 +188,11 @@ const App = () => {
     setSlots((prevSlots) => {
       return prevSlots.map((object) =>
         object.name === name
-          ? { ...object, favorite: true ? false : true }
+          ? { ...object, favorite: object.favorite ? false : true }
           : object
       );
     });
+    console.log(slots)
   };
 
   const cancelHandler = (name) => {

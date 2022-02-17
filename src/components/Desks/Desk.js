@@ -26,7 +26,7 @@ const Desk = (props) => {
           <div>Booked</div>
           <div>
             <button onClick={favoriteHandler}>Fav</button>
-            {props.favorite ? (
+            {props.favoriteStatus ? (
               <img
                 src="https://upload.wikimedia.org/wikipedia/commons/e/e5/Full_Star_Yellow.svg"
                 alt="some value"
@@ -68,7 +68,7 @@ const Desk = (props) => {
           <div>Unbooked</div>
           <div>
             <button onClick={favoriteHandler}>Fav</button>
-            {props.favorite ? (
+            {props.favoriteStatus ? (
               <img
                 src="https://upload.wikimedia.org/wikipedia/commons/e/e5/Full_Star_Yellow.svg"
                 alt="some value"
