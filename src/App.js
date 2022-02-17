@@ -170,10 +170,10 @@ const App = () => {
     setSelectionUI(true);
   };
 
-  const favoritesHandler = (name) => {
+  const favoritesHandler = (favName) => {
     setSlots((prevSlots) => {
       return prevSlots.map((object) =>
-        object.name === name
+        object.name === favName
           ? { ...object, favorite: true }
           : object
       );
