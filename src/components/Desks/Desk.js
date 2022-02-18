@@ -17,6 +17,10 @@ const Desk = (props) => {
     props.onCancel(props.name);
   };
 
+  const sanitizationHandler = () => {
+    console.log("Sanitization is on the way for", props.name)
+  }
+
   return (
     <div>
       {props.bookingStatus === true && (
@@ -105,6 +109,9 @@ const Desk = (props) => {
                   <button onClick={bookingHandler}>Approve Booking</button>
                 </div>
               )}
+              <div>
+              <button onClick={sanitizationHandler}>Request Sanitization</button>
+            </div>
             </div>
           )}
         </Card>
