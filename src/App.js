@@ -172,6 +172,7 @@ const App = () => {
           : object
       );
     });
+    setConfirmationUI(true);
   };
   
 
