@@ -168,7 +168,18 @@ const App = () => {
     setSlots((prevSlots) => {
       return prevSlots.map((object) =>
         object.name === name
-          ? { ...object, bookingStatus: true, userSelection: true }
+          ? { ...object, bookingStatus: true}
+          : object
+      );
+    });
+  };
+  
+
+  const userSelectionHandler = (name) => {
+    setSlots((prevSlots) => {
+      return prevSlots.map((object) =>
+        object.name === name
+          ? { ...object, userSelection: true}
           : object
       );
     });
@@ -220,13 +231,13 @@ const App = () => {
     setConfirmationUI(false);
     setSelectionUI(false);
     setUser('');
-    setSlots((prevSlots) => {
-      return prevSlots.map((object) =>
-        object.userSelection === true
-          ? { ...object, userSelection: false }
-          : object
-      );
-    });
+    // setSlots((prevSlots) => {
+    //   return prevSlots.map((object) =>
+    //     object.userSelection === true
+    //       ? { ...object, userSelection: false }
+    //       : object
+    //   );
+    // });
   }
 
   return (
@@ -245,6 +256,7 @@ const App = () => {
             slots={slots}
             rules={rules}
             onBooking={bookingHandler}
+            onUserSelection={userSelectionHandler}
             onFavorite={favoritesHandler}
             onCancel={cancelHandler}
             onSpacingChange={spacingChangeHandler}
@@ -256,6 +268,7 @@ const App = () => {
             <DeskSelection
               slots={slots}
               setUserInfo={setUser}
+              onBooking={bookingHandler}
               onSubmitHandler={submitHandler}
             />
           </Card>

@@ -4,6 +4,9 @@ import Card from "../UI/Card";
 import "./Desk.css";
 
 const Desk = (props) => {
+  const userSelectionHandler = () => {
+    props.onUserSelection(props.name);
+  };
   const bookingHandler = () => {
     props.onBooking(props.name);
   };
@@ -13,10 +16,6 @@ const Desk = (props) => {
   const cancelHandler = () => {
     props.onCancel(props.name);
   };
-
-  const approveHandler = () => {
-
-  }
 
   return (
     <div>
@@ -43,12 +42,12 @@ const Desk = (props) => {
             )}
             {props.userSelection === true && (
               <div>
-              <img
-                src="https://upload.wikimedia.org/wikipedia/commons/7/73/Flat_tick_icon.svg"
-                alt="some value"
-                height={15}
-                width={15}
-              />
+                <img
+                  src="https://upload.wikimedia.org/wikipedia/commons/7/73/Flat_tick_icon.svg"
+                  alt="some value"
+                  height={15}
+                  width={15}
+                />
               </div>
             )}
           </div>
@@ -57,9 +56,6 @@ const Desk = (props) => {
               <div>
                 <button onClick={cancelHandler}>Cancel Booking</button>
               </div>
-              {/* <div>
-                <button onClick={approveHandler}>Approve Booking</button>
-              </div> */}
             </div>
           )}
         </Card>
@@ -87,22 +83,26 @@ const Desk = (props) => {
             )}
           </div>
           <div>
-            {props.userSelection === true}
-          </div>
-          <div>
             {props.j === 0 ? (
-              <button onClick={bookingHandler}>Book Desk</button>
+              <button onClick={userSelectionHandler}>Book Desk</button>
             ) : (
               <div>Unavailable</div>
             )}
           </div>
           {props.userSelection === true && (
-            <img
-              src="https://upload.wikimedia.org/wikipedia/commons/7/73/Flat_tick_icon.svg"
-              alt="some value"
-              height={15}
-              width={15}
-            />
+            <div>
+              <img
+                src="https://upload.wikimedia.org/wikipedia/commons/7/73/Flat_tick_icon.svg"
+                alt="some value"
+                height={15}
+                width={15}
+              />
+              {props.user === "floor manager" && (
+                <div>
+                  <button onClick={bookingHandler}>Approve Booking</button>
+                </div>
+              )}
+            </div>
           )}
         </Card>
       )}

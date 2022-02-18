@@ -8,6 +8,9 @@ import "./DeskSelection.css";
 const DeskCollection = (props) => {
   let i = -1;
 
+  const userSelectionHandler = (name) => {
+    props.onUserSelection(name);
+  }
   const bookingHandler = (name) => {
     props.onBooking(name);
   };
@@ -37,6 +40,7 @@ const DeskCollection = (props) => {
             bookingStatus={desk.bookingStatus}
             userSelection={desk.userSelection}
             favoriteStatus={desk.favorite}
+            onUserSelection={userSelectionHandler}
             onFavorite={favoriteHandler}
             onBooking={bookingHandler}
             onCancel={cancelHandler}
