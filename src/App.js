@@ -168,7 +168,7 @@ const App = () => {
     setSlots((prevSlots) => {
       return prevSlots.map((object) =>
         object.name === name
-          ? { ...object, bookingStatus: true}
+          ? { ...object, bookingStatus: true, userSelection: true}
           : object
       );
     });

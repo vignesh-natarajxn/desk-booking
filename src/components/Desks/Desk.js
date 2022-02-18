@@ -18,8 +18,8 @@ const Desk = (props) => {
   };
 
   const sanitizationHandler = () => {
-    console.log("Sanitization is on the way for", props.name)
-  }
+    console.log("Sanitization is on the way for", props.name);
+  };
 
   return (
     <div>
@@ -89,8 +89,11 @@ const Desk = (props) => {
           <div>
             {props.j === 0 ? (
               <div>
-                {props.user === 'floor manager' ? <button onClick={bookingHandler}>Book Desk</button>
-              : <button onClick={userSelectionHandler}>Book Desk</button>}
+                {props.user === "floor manager" ? (
+                  <button onClick={bookingHandler}>Book Desk</button>
+                ) : (
+                  <button onClick={userSelectionHandler}>Book Desk</button>
+                )}
               </div>
             ) : (
               <div>Unavailable</div>
@@ -109,11 +112,11 @@ const Desk = (props) => {
                   <button onClick={bookingHandler}>Approve Booking</button>
                 </div>
               )}
-              <div>
-              <button onClick={sanitizationHandler}>Request Sanitization</button>
-            </div>
             </div>
           )}
+          <div>
+            <button onClick={sanitizationHandler}>Request Sanitization</button>
+          </div>
         </Card>
       )}
     </div>
