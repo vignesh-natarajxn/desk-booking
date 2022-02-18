@@ -84,7 +84,10 @@ const Desk = (props) => {
           </div>
           <div>
             {props.j === 0 ? (
-              <button onClick={userSelectionHandler}>Book Desk</button>
+              <div>
+                {props.user === 'floor manager' ? <button onClick={bookingHandler}>Book Desk</button>
+              : <button onClick={userSelectionHandler}>Book Desk</button>}
+              </div>
             ) : (
               <div>Unavailable</div>
             )}
