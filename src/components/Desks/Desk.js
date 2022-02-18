@@ -60,10 +60,16 @@ const Desk = (props) => {
               <div>
                 <button onClick={cancelHandler}>Cancel Booking</button>
               </div>
+              <div>
+                <button onClick={sanitizationHandler}>
+                  Request Sanitization
+                </button>
+              </div>
             </div>
           )}
         </Card>
       )}
+
       {props.bookingStatus === false && (
         <Card className="desk">
           <div>{props.name}</div>
@@ -112,11 +118,13 @@ const Desk = (props) => {
                   <button onClick={bookingHandler}>Approve Booking</button>
                 </div>
               )}
+              <div>
+                <button onClick={sanitizationHandler}>
+                  Request Sanitization
+                </button>
+              </div>
             </div>
           )}
-          <div>
-            <button onClick={sanitizationHandler}>Request Sanitization</button>
-          </div>
         </Card>
       )}
     </div>
